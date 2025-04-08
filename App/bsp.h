@@ -18,9 +18,46 @@
 #define DIN_8_ID							7
 #define DIN_ID_MAX						7
 
+/////////////////////////////////LOCAL CONSTANTS///////////////////////////////
+// DIN Pin definitions:
+#define DIN_1_PORT					GPIOB
+#define DIN_1_PIN					GPIO_PIN_14
+
+#define DIN_2_PORT					GPIOB
+#define DIN_2_PIN					GPIO_PIN_15
+
+#define DIN_3_PORT					GPIOB
+#define DIN_3_PIN					GPIO_PIN_12
+
+#define DIN_4_PORT					GPIOB
+#define DIN_4_PIN					GPIO_PIN_13
+
+#define DIN_5_PORT					GPIOB
+#define DIN_5_PIN					GPIO_PIN_6
+
+#define DIN_6_PORT					GPIOB
+#define DIN_6_PIN					GPIO_PIN_5
+
+#define DIN_7_PORT					GPIOB
+#define DIN_7_PIN					GPIO_PIN_4
+
+#define DIN_8_PORT					GPIOB
+#define DIN_8_PIN					GPIO_PIN_3
+
+/*Generic event structure */
+typedef struct{
+    uint8_t sig;
+}event_t;
+
+/* For user generated events */
+typedef struct{
+    event_t super;
+}user_event_t;
+
 typedef struct {
 	uint8_t BSP_DIN_short[8];
 	uint8_t BSP_DIN_hold[8];
+	Button_Typdef Button_status[8];
 } BSP_DIN_STATUS_t;
 
 void BSP_din_init(void);

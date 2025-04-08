@@ -43,3 +43,4 @@ duc_nvm\main.o: ../Driver/displayDriver/displayTypeDefs.h
 duc_nvm\main.o: ../Driver/displayDriver/utils/fonts.h
 duc_nvm\main.o: ../Driver/displayDriver/utils/gamma.h
 duc_nvm\main.o: ../Driver/displayDriver/utils/colors.h
+duc_nvm\main.o: ../Driver/flash.h

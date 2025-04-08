@@ -8,6 +8,7 @@
 #ifndef TERMINAL6X8_H
 #define	TERMINAL6X8_H
 
+#include "../displayTypeDefs.h"
 
 const unsigned char Terminal6x8[] = {
 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // Code for char  
@@ -103,7 +104,7 @@ const unsigned char Terminal6x8[] = {
 0x05, 0x00, 0x64, 0x54, 0x54, 0x4C, 0x00   // Code for char z
 };
 
-const font_t TERMINAL_6X8={6,8,32,122,Terminal6x8};
+static const font_t Terminal6x8_BIG={6,8,32,122,Terminal6x8};
     
 
 #endif	/* TERMINAL6X8_H */

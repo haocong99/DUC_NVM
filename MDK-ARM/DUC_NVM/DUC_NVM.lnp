@@ -20,6 +20,7 @@
 "duc_nvm\system_stm32f1xx.o"
 "duc_nvm\jq8400_fl.o"
 "duc_nvm\button.o"
+"duc_nvm\flash.o"
 "duc_nvm\bsp_input.o"
 "duc_nvm\apl_stt.o"
 "duc_nvm\apl.o"

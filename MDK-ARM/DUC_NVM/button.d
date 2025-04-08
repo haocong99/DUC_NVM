@@ -29,3 +29,7 @@ duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/
 duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+duc_nvm\button.o: ../App/bsp.h
+duc_nvm\button.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+duc_nvm\button.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+duc_nvm\button.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

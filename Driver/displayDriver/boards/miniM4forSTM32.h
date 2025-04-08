@@ -6,7 +6,7 @@
 #define MINIM4FORSTM32_H_
 
 #include "stm32f1xx.h"
-
+#include "main.h"
 #define BOARD_NAME "MINI_M4_FOR_STM32"
 
 //---------------------------------------------------------------------------------------------------------
@@ -74,19 +74,19 @@
 
 //color bits 1 - subpanel 1
 #define R1_PORT      	GPIOB
-#define R1_PIN			9
+#define R1_PIN				9
 #define G1_PORT      	GPIOB
-#define G1_PIN			10
+#define G1_PIN				10
 #define B1_PORT      	GPIOA
-#define B1_PIN			3
+#define B1_PIN				1
 
 //color bits 2 - subpanel 2
 #define R2_PORT      	GPIOB
-#define R2_PIN			8
+#define R2_PIN				8
 #define G2_PORT      	GPIOB
-#define G2_PIN			11
-#define B2_PORT      	GPIOA
-#define B2_PIN			4
+#define G2_PIN				11
+#define B2_PORT      	GPIOB
+#define B2_PIN				0
 
 ////color bits 3 - subpanel 3
 //#define R3_PORT      	GPIOB
@@ -106,21 +106,21 @@
 
 //selection bits
 #define A_PORT      	GPIOA
-#define A_PIN			5
+#define A_PIN					12
 #define B_PORT      	GPIOA
-#define B_PIN			2
+#define B_PIN					0
 #define C_PORT      	GPIOA
-#define C_PIN			6
+#define C_PIN					11
 #define D_PORT      	GPIOA
-#define D_PIN			15
+#define D_PIN					15
 
 //control bits
 #define CLK_PORT      	GPIOA
-#define CLK_PIN			7
-#define LAT_PORT      	GPIOA
-#define LAT_PIN			0
-#define OE_PORT      	GPIOB
-#define OE_PIN			1
+#define CLK_PIN					8
+#define LAT_PORT      	GPIOC
+#define LAT_PIN					14
+#define OE_PORT      		GPIOB
+#define OE_PIN					1
 
 //---------------------------------------------------------------------------------------------------------
 //PIN WRITE MACRO FUNCTIONS

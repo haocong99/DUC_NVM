@@ -20,6 +20,7 @@ typedef struct
 	uint8_t is_press_timeout;
 	GPIO_TypeDef *GPIOx;
 	uint16_t GPIO_Pin;
+	uint8_t  button_ID;
 	button_state_t btn_sm_state;
 }Button_Typdef;
 

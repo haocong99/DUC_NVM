@@ -34,3 +34,11 @@ duc_nvm\apl.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Dri
 duc_nvm\apl.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 duc_nvm\apl.o: ../Driver/button.h
 duc_nvm\apl.o: ../Core/Inc/main.h
+duc_nvm\apl.o: ../Driver/displayDriver/displayDriver.h
+duc_nvm\apl.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+duc_nvm\apl.o: ../Driver/displayDriver/displayConfig.h
+duc_nvm\apl.o: ../Driver/displayDriver/boards/miniM4forSTM32.h
+duc_nvm\apl.o: ../Driver/displayDriver/displayTypeDefs.h
+duc_nvm\apl.o: ../Driver/displayDriver/utils/fonts.h
+duc_nvm\apl.o: ../Driver/displayDriver/utils/gamma.h
+duc_nvm\apl.o: ../Driver/displayDriver/utils/colors.h

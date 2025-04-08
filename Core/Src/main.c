@@ -24,7 +24,9 @@
 #include "JQ8400_FL.h"
 #include "bsp.h"
 #include "apl.h"
-//#include "displayDriver.h"
+#include "displayDriver.h"
+#include "flash.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,6 +47,7 @@
 TIM_HandleTypeDef htim2;
 
 UART_HandleTypeDef huart1;
+UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 uint32_t g_systick_1ms = 0U;
@@ -58,6 +61,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -65,7 +69,7 @@ static void MX_TIM2_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 JQ8400_Name MP3;
-
+uint8_t ver[10] = "0.1";
 int fNum = 0 ;
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
@@ -128,14 +132,19 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   MX_TIM2_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 	HAL_TIM_Base_Start_IT(&htim2);
 	BSP_din_init();
 	APL_init();
 	JQ8400_Init(&MP3,&huart1);
-	JQ8400_SetVolume(&MP3,30);
+	JQ8400_SetVolume(&MP3,28);
+//		#if (REFRESH_MODE==1)
+//  htim2.Init.Period = 8329;  // thay doi de co tan so ngat la 120Hz
+//  HAL_TIM_Base_Init(&htim2);
+//  HAL_TIM_Base_Start_IT(&htim2);
+//	#endif
 //	HAL_UART_Transmit(&huart1,(uint8_t*) button8_short, sizeof(button8_short), 1000);
-	HAL_Delay(4000);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -145,28 +154,16 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		APL_Manager();
-		if(g_100ms_flg==1)
+		if(g_10ms_flg==1)
 		{
-			APL_Manager();
-			g_100ms_flg=0;
+			
+			g_10ms_flg=0;
 		}
-		//JQ8400_SetVolume(&MP3,20);
-//		button_handle(&button1);
-//		button_handle(&button2);
-		//fNum = fileNums(&MP3);
+		APL_Manager();
+		
+//		JQ8400_PlaySong(&MP3,10);
+//		HAL_Delay(5000);
 
-//			uint32_t i = 0;
-//		for (i = 0; i < DIN_CNT; i++) {
-//		if(BSP_DIN_short[i] == 1)
-//		{
-////			HAL_Delay(100);
-//			BSP_DIN_short[i]=0;
-//			HAL_UART_Transmit(&huart1,(uint8_t*) button8_short, sizeof(button8_short), 1000);
-//			HAL_Delay(100);
-//			JQ8400_SetVolume(&MP3,20);
-//		}
-//	}
   }
   /* USER CODE END 3 */
 }
@@ -289,6 +286,39 @@ static void MX_USART1_UART_Init(void)
 }
 
 /**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -306,47 +336,47 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13|Output_MCU_LAT_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, Output_MCU_LAT_Pin|Output_MCU_E_Pin|Output_MCU_B_Pin|Output_MCU_B1_Pin
-                          |Output_MCU_B2_Pin|Output_MCU_A_Pin|Output_MCU_C_Pin|Output_MCU_CLK_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, Output_MCU_B_Pin|Output_MCU_B1_Pin|Output_MCU_CLK_Pin|Output_MCU_C_Pin
+                          |Output_MCU_A_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, Output_MCU_OE_Pin|Output_MCU_G1_Pin|Output_MCU_G2_Pin|Output_MCU_R2_Pin
-                          |Output_MCU_R1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, Output_MCU_B2_Pin|Output_MCU_OE_Pin|Output_MCU_G1_Pin|Output_MCU_G2_Pin
+                          |Output_MCU_R2_Pin|Output_MCU_R1_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : PC13 */
-  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  /*Configure GPIO pins : PC13 Output_MCU_LAT_Pin */
+  GPIO_InitStruct.Pin = GPIO_PIN_13|Output_MCU_LAT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Output_MCU_LAT_Pin Output_MCU_E_Pin Output_MCU_B_Pin Output_MCU_B1_Pin
-                           Output_MCU_B2_Pin Output_MCU_A_Pin Output_MCU_C_Pin Output_MCU_CLK_Pin */
-  GPIO_InitStruct.Pin = Output_MCU_LAT_Pin|Output_MCU_E_Pin|Output_MCU_B_Pin|Output_MCU_B1_Pin
-                          |Output_MCU_B2_Pin|Output_MCU_A_Pin|Output_MCU_C_Pin|Output_MCU_CLK_Pin;
+  /*Configure GPIO pins : Output_MCU_B_Pin Output_MCU_B1_Pin Output_MCU_CLK_Pin Output_MCU_C_Pin
+                           Output_MCU_A_Pin */
+  GPIO_InitStruct.Pin = Output_MCU_B_Pin|Output_MCU_B1_Pin|Output_MCU_CLK_Pin|Output_MCU_C_Pin
+                          |Output_MCU_A_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Output_MCU_OE_Pin Output_MCU_G1_Pin Output_MCU_G2_Pin Output_MCU_R2_Pin
-                           Output_MCU_R1_Pin */
-  GPIO_InitStruct.Pin = Output_MCU_OE_Pin|Output_MCU_G1_Pin|Output_MCU_G2_Pin|Output_MCU_R2_Pin
-                          |Output_MCU_R1_Pin;
+  /*Configure GPIO pins : Output_MCU_B2_Pin Output_MCU_OE_Pin Output_MCU_G1_Pin Output_MCU_G2_Pin
+                           Output_MCU_R2_Pin Output_MCU_R1_Pin */
+  GPIO_InitStruct.Pin = Output_MCU_B2_Pin|Output_MCU_OE_Pin|Output_MCU_G1_Pin|Output_MCU_G2_Pin
+                          |Output_MCU_R2_Pin|Output_MCU_R1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Input_BT3_Pin Input_BT4_Pin Input_BT1_Pin Input_BT2_Pin
-                           Input_DATA4_Pin Input_DATA3_Pin Input_DATA2_Pin Input_DATA1_Pin */
-  GPIO_InitStruct.Pin = Input_BT3_Pin|Input_BT4_Pin|Input_BT1_Pin|Input_BT2_Pin
-                          |Input_DATA4_Pin|Input_DATA3_Pin|Input_DATA2_Pin|Input_DATA1_Pin;
+  /*Configure GPIO pins : Input_BT4_Pin Input_BT1_Pin Input_BT2_Pin Input_DATA4_Pin
+                           Input_DATA3_Pin Input_DATA2_Pin Input_DATA1_Pin */
+  GPIO_InitStruct.Pin = Input_BT4_Pin|Input_BT1_Pin|Input_BT2_Pin|Input_DATA4_Pin
+                          |Input_DATA3_Pin|Input_DATA2_Pin|Input_DATA1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */

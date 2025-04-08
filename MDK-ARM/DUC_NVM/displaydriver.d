@@ -33,6 +33,7 @@ duc_nvm\displaydriver.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_
 duc_nvm\displaydriver.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 duc_nvm\displaydriver.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 duc_nvm\displaydriver.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+duc_nvm\displaydriver.o: ../Core/Inc/main.h
 duc_nvm\displaydriver.o: ..\Driver\displayDriver\displayTypeDefs.h
 duc_nvm\displaydriver.o: ..\Driver\displayDriver\utils/fonts.h
 duc_nvm\displaydriver.o: ..\Driver\displayDriver\utils/gamma.h
