@@ -33,4 +33,5 @@ duc_nvm\bsp_input.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8
 duc_nvm\bsp_input.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 duc_nvm\bsp_input.o: ../Driver/button.h
 duc_nvm\bsp_input.o: ../Core/Inc/main.h
+duc_nvm\bsp_input.o: ../App/bsp.h
 duc_nvm\bsp_input.o: ..\App\apl.h

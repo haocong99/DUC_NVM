@@ -34,6 +34,7 @@ duc_nvm\apl_stt.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6
 duc_nvm\apl_stt.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 duc_nvm\apl_stt.o: ../Driver/button.h
 duc_nvm\apl_stt.o: ../Core/Inc/main.h
+duc_nvm\apl_stt.o: ../App/bsp.h
 duc_nvm\apl_stt.o: ../Driver/displayDriver/displayDriver.h
 duc_nvm\apl_stt.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 duc_nvm\apl_stt.o: ../Driver/displayDriver/displayConfig.h

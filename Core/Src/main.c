@@ -372,9 +372,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pins : Input_BT4_Pin Input_BT1_Pin Input_BT2_Pin Input_DATA4_Pin
-                           Input_DATA3_Pin Input_DATA2_Pin Input_DATA1_Pin */
+                           Input_DATA3_Pin Input_DATA2_Pin */
   GPIO_InitStruct.Pin = Input_BT4_Pin|Input_BT1_Pin|Input_BT2_Pin|Input_DATA4_Pin
-                          |Input_DATA3_Pin|Input_DATA2_Pin|Input_DATA1_Pin;
+                          |Input_DATA3_Pin|Input_DATA2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);

@@ -89,8 +89,6 @@ void Error_Handler(void);
 #define Input_DATA3_GPIO_Port GPIOB
 #define Input_DATA2_Pin GPIO_PIN_5
 #define Input_DATA2_GPIO_Port GPIOB
-#define Input_DATA1_Pin GPIO_PIN_6
-#define Input_DATA1_GPIO_Port GPIOB
 #define Output_MCU_R2_Pin GPIO_PIN_8
 #define Output_MCU_R2_GPIO_Port GPIOB
 #define Output_MCU_R1_Pin GPIO_PIN_9

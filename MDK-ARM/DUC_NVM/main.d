@@ -34,6 +34,7 @@ duc_nvm\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 duc_nvm\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 duc_nvm\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 duc_nvm\main.o: ../Driver/button.h
+duc_nvm\main.o: ../App/bsp.h
 duc_nvm\main.o: ../App/apl.h
 duc_nvm\main.o: ../Driver/displayDriver/displayDriver.h
 duc_nvm\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

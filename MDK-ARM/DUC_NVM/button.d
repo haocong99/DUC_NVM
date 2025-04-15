@@ -1,6 +1,9 @@
 duc_nvm\button.o: ..\Driver\Button.c
-duc_nvm\button.o: ..\Driver\Button.h
-duc_nvm\button.o: ../Core/Inc/main.h
+duc_nvm\button.o: ../App/bsp.h
+duc_nvm\button.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+duc_nvm\button.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+duc_nvm\button.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+duc_nvm\button.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 duc_nvm\button.o: ../Core/Inc/stm32f1xx_hal_conf.h
 duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -8,7 +11,6 @@ duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/
 duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
 duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
 duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Include/core_cm3.h
-duc_nvm\button.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Include/cmsis_version.h
 duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Include/cmsis_compiler.h
 duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Include/cmsis_armcc.h
@@ -29,7 +31,6 @@ duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/
 duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 duc_nvm\button.o: C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+duc_nvm\button.o: ../Driver/button.h
+duc_nvm\button.o: ../Core/Inc/main.h
 duc_nvm\button.o: ../App/bsp.h
-duc_nvm\button.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
-duc_nvm\button.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-duc_nvm\button.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

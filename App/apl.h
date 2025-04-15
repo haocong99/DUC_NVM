@@ -64,7 +64,7 @@ typedef struct {
     apl_state_t active_state;
 }apl_status_t;
 
-const user_event_t *APL_event_get(void);
+
 
 
 typedef enum{
@@ -76,7 +76,7 @@ typedef enum{
 
 void APL_init(void);
 void OSL_din_callback(const BSP_DIN_STATUS_t *p_din);
-void APL_din_callback(const Button_Typdef *ButtonX);
+void APL_din_callback(user_event_t const *const e);
 void apl_stt_init(apl_status_t *mobj);
 event_status_t apl_state_machine(apl_status_t *const mobj, event_t const *const e);
 void APL_event_dispatcher(apl_status_t *const mobj,event_t const *const e);
