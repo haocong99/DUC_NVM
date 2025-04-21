@@ -54,8 +54,8 @@ typedef struct{
 typedef struct {
     uint8_t mode;
 //    uint8_t point_num;
-    uint8_t A_point;
-    uint8_t B_point;	
+    int8_t A_point;
+    int8_t B_point;	
 		uint8_t A_sec;
 		uint8_t B_sec;
 		int8_t select;

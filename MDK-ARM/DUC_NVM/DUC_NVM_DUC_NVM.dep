@@ -36,7 +36,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x60253188)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025318E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60253184)
 I (../Driver/button.h)(0x67F69349)
-I (../App/apl.h)(0x67F69AFE)
+I (../App/apl.h)(0x68066594)
 I (../Driver/displayDriver/displayDriver.h)(0x66FAD32F)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x60253184)
 I (../Driver/displayDriver/displayConfig.h)(0x66FC0AEF)
@@ -621,7 +621,7 @@ I (C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1
 I (C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66DF1A83)
 F (..\Driver\flash.h)(0x67F10213)()
 F (..\App\bsp.h)(0x67F6968D)()
-F (..\App\bsp_input.c)(0x67F6A3F2)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Device/ST/STM32F1xx/Include -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Include -I ../App -I ../Driver -I ../Driver/displayDriver -I ../Driver/displayDriver/boards -I ../Driver/displayDriver/utils -I ../Driver/Fonts -I ../Driver/Images -I ../Driver/Images/RGB565-I.\RTE\_DUC_NVM-IC:\Users\mobifone\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\mobifone\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o duc_nvm\bsp_input.o --omf_browse duc_nvm\bsp_input.crf --depend duc_nvm\bsp_input.d)
+F (..\App\bsp_input.c)(0x67F6A49F)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Device/ST/STM32F1xx/Include -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Include -I ../App -I ../Driver -I ../Driver/displayDriver -I ../Driver/displayDriver/boards -I ../Driver/displayDriver/utils -I ../Driver/Fonts -I ../Driver/Images -I ../Driver/Images/RGB565-I.\RTE\_DUC_NVM-IC:\Users\mobifone\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\mobifone\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o duc_nvm\bsp_input.o --omf_browse duc_nvm\bsp_input.crf --depend duc_nvm\bsp_input.d)
 I (..\App\bsp.h)(0x67F6968D)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025318E)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x60253188)
@@ -656,9 +656,9 @@ I (C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1
 I (../Driver/button.h)(0x67F69349)
 I (../Core/Inc/main.h)(0x67F62A2B)
 I (../App/bsp.h)(0x67F6968D)
-I (..\App\apl.h)(0x67F69AFE)
-F (..\App\apl_stt.c)(0x67F10213)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Device/ST/STM32F1xx/Include -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Include -I ../App -I ../Driver -I ../Driver/displayDriver -I ../Driver/displayDriver/boards -I ../Driver/displayDriver/utils -I ../Driver/Fonts -I ../Driver/Images -I ../Driver/Images/RGB565-I.\RTE\_DUC_NVM-IC:\Users\mobifone\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\mobifone\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o duc_nvm\apl_stt.o --omf_browse duc_nvm\apl_stt.crf --depend duc_nvm\apl_stt.d)
-I (..\App\apl.h)(0x67F69AFE)
+I (..\App\apl.h)(0x68066594)
+F (..\App\apl_stt.c)(0x68067192)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Device/ST/STM32F1xx/Include -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Include -I ../App -I ../Driver -I ../Driver/displayDriver -I ../Driver/displayDriver/boards -I ../Driver/displayDriver/utils -I ../Driver/Fonts -I ../Driver/Images -I ../Driver/Images/RGB565-I.\RTE\_DUC_NVM-IC:\Users\mobifone\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\mobifone\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o duc_nvm\apl_stt.o --omf_browse duc_nvm\apl_stt.crf --depend duc_nvm\apl_stt.d)
+I (..\App\apl.h)(0x68066594)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025318E)
 I (..\App\bsp.h)(0x67F6968D)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x60253188)
@@ -708,9 +708,9 @@ I (../Driver/Fonts/Terminal6x8.h)(0x67F10213)
 I (../Driver/Fonts/Times_New_Roman29x26.h)(0x67F10213)
 I (../Driver/JQ8400_FL.h)(0x66E7EBB6)
 I (../Driver/flash.h)(0x67F10213)
-F (..\App\apl.h)(0x67F69AFE)()
+F (..\App\apl.h)(0x68066594)()
 F (..\App\apl.c)(0x67F69B39)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O2 --apcs=interwork --split_sections -I ../Core/Inc -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Device/ST/STM32F1xx/Include -I C:/Users/mobifone/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/CMSIS/Include -I ../App -I ../Driver -I ../Driver/displayDriver -I ../Driver/displayDriver/boards -I ../Driver/displayDriver/utils -I ../Driver/Fonts -I ../Driver/Images -I ../Driver/Images/RGB565-I.\RTE\_DUC_NVM-IC:\Users\mobifone\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\mobifone\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o duc_nvm\apl.o --omf_browse duc_nvm\apl.crf --depend duc_nvm\apl.d)
-I (..\App\apl.h)(0x67F69AFE)
+I (..\App\apl.h)(0x68066594)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025318E)
 I (..\App\bsp.h)(0x67F6968D)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x60253188)

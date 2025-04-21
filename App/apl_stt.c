@@ -23,6 +23,8 @@ typedef struct
 Information_t Infor_read;
 Information_t Infor_write;
 
+#define COLOR_B GREEN
+#define COLOR_A RED
 static char str[50];
 extern UART_HandleTypeDef huart1;
 extern JQ8400_Name MP3;
@@ -333,17 +335,19 @@ static event_status_t apl_state_handler_MENU_START(apl_status_t *const mobj, eve
 			{
 				mobj->serve = team_A_1;
 			}
-			displayClear();		
-			displayGoTo(0,2);
-			displaySetFont(Terminal6x8_BIG);
-			displayPrint(">Start A", COLOR(WHITE));
-			displayGoTo(5,12);
-			displaySetFont(Terminal6x8_BIG);
-			displayPrint("Start B", COLOR(WHITE));	
-//			displayGoTo(12,12);
-//			displaySetFont(Terminal6x8_BIG);
-//			displayPrint("Exit", COLOR(WHITE));			
-			return EVENT_HANDLED;
+////			displayClear();		
+////			displayGoTo(0,2);
+////			displaySetFont(Terminal6x8_BIG);
+////			displayPrint(">Start A", COLOR(WHITE));
+////			displayGoTo(5,12);
+////			displaySetFont(Terminal6x8_BIG);
+////			displayPrint("Start B", COLOR(WHITE));	
+////			displayGoTo(12,12);
+////			displaySetFont(Terminal6x8_BIG);
+////			displayPrint("Exit", COLOR(WHITE));			
+////			return EVENT_HANDLED;
+			mobj->active_state = STARTING;
+			return EVENT_TRANSITION;
 		}
 		case EXIT:{
 			//disp_clr();
@@ -353,185 +357,185 @@ static event_status_t apl_state_handler_MENU_START(apl_status_t *const mobj, eve
 //			HAL_UART_Transmit(&huart1,(uint8_t*) str, sizeof(str), 1000);
 			return EVENT_HANDLED;
 		}
-		case REMOTE_X:
-		{
-			switch(mobj->serve)
-			{
-				case team_B_2:
-					mobj->serve = team_A_2;
-					break;
-				case team_B_1:
-					mobj->serve = team_A_1;
-					break;
-				case team_A_1 :
-					mobj->serve = team_B_1;
-					break;
-				case team_A_2:
-					mobj->serve = team_B_2;
-					break;	
-				default:
-					break;
-			}
-			if((mobj->serve == team_A_2)|(mobj->serve == team_A_1)){
-				displayClear();		
-				displayGoTo(0,2);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Start A", COLOR(WHITE));
-				displayGoTo(5,12);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Start B", COLOR(WHITE));			
-				return EVENT_HANDLED;
-			}
-			if((mobj->serve == team_B_2)|(mobj->serve == team_B_1)){
-				// chon B giao bong
-				displayClear();		
-				displayGoTo(5,2);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Start A", COLOR(WHITE));
-				displayGoTo(0,12);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Start B", COLOR(WHITE));			
-				return EVENT_HANDLED;
-			}
-			return EVENT_IGNORED;
-		}
-		case REMOTE_Y:
-		{
-			switch(mobj->serve)
-			{
-				case team_B_2:
-					mobj->serve = team_A_2;
-					break;
-				case team_B_1:
-					mobj->serve = team_A_1;
-					break;
-				case team_A_1 :
-					mobj->serve = team_B_1;
-					break;
-				case team_A_2:
-					mobj->serve = team_B_2;
-					break;	
-				default:
-					break;
-			}
-			if((mobj->serve == team_A_2)|(mobj->serve == team_A_1)){
-				displayClear();		
-				displayGoTo(0,2);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Start A", COLOR(WHITE));
-				displayGoTo(5,12);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Start B", COLOR(WHITE));			
-				return EVENT_HANDLED;
-			}
-			if((mobj->serve == team_B_2)|(mobj->serve == team_B_1)){
-				// chon B giao bong
-				displayClear();		
-				displayGoTo(5,2);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Start A", COLOR(WHITE));
-				displayGoTo(0,12);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Start B", COLOR(WHITE));			
-				return EVENT_HANDLED;
-			}
-			return EVENT_IGNORED;
-		}
-		case INC:
-		{
-			switch(mobj->serve)
-			{
-				case team_B_2:
-					mobj->serve = team_A_2;
-					break;
-				case team_B_1:
-					mobj->serve = team_A_1;
-					break;
-				case team_A_1 :
-					mobj->serve = team_B_1;
-					break;
-				case team_A_2:
-					mobj->serve = team_B_2;
-					break;	
-				default:
-					break;
-			}
-			if((mobj->serve == team_A_2)|(mobj->serve == team_A_1)){
-				displayClear();		
-				displayGoTo(0,2);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Start A", COLOR(WHITE));
-				displayGoTo(5,12);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Start B", COLOR(WHITE));			
-				return EVENT_HANDLED;
-			}
-			if((mobj->serve == team_B_2)|(mobj->serve == team_B_1)){
-				// chon B giao bong
-				displayClear();		
-				displayGoTo(5,2);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Start A", COLOR(WHITE));
-				displayGoTo(0,12);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Start B", COLOR(WHITE));			
-				return EVENT_HANDLED;
-			}
-			return EVENT_IGNORED;
-		}
-		case DEC:
-		{
-			switch(mobj->serve)
-			{
-				case team_B_2:
-					mobj->serve = team_A_2;
-					break;
-				case team_B_1:
-					mobj->serve = team_A_1;
-					break;
-				case team_A_1 :
-					mobj->serve = team_B_1;
-					break;
-				case team_A_2:
-					mobj->serve = team_B_2;
-					break;	
-				default:
-					break;
-			}
-			if((mobj->serve == team_A_2)|(mobj->serve == team_A_1)){
-				displayClear();		
-				displayGoTo(0,2);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Start A", COLOR(WHITE));
-				displayGoTo(5,12);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Start B", COLOR(WHITE));			
-				return EVENT_HANDLED;
-			}
-			if((mobj->serve == team_B_2)|(mobj->serve == team_B_1)){
-				// chon B giao bong
-				displayClear();		
-				displayGoTo(5,2);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Start A", COLOR(WHITE));
-				displayGoTo(0,12);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Start B", COLOR(WHITE));			
-				return EVENT_HANDLED;
-			}
-			return EVENT_IGNORED;
-		}
-		case SELECT:
-		{
-			//tran dau bat dau ben mobj->serve giao bong
-			mobj->active_state = STARTING;
-			return EVENT_TRANSITION;
-		}		
-		case START:
-		{
-			mobj->active_state = MENU;
-			return EVENT_TRANSITION;
-		}
+//		case REMOTE_X:
+//		{
+//			switch(mobj->serve)
+//			{
+//				case team_B_2:
+//					mobj->serve = team_A_2;
+//					break;
+//				case team_B_1:
+//					mobj->serve = team_A_1;
+//					break;
+//				case team_A_1 :
+//					mobj->serve = team_B_1;
+//					break;
+//				case team_A_2:
+//					mobj->serve = team_B_2;
+//					break;	
+//				default:
+//					break;
+//			}
+//			if((mobj->serve == team_A_2)|(mobj->serve == team_A_1)){
+//				displayClear();		
+//				displayGoTo(0,2);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint(">Start A", COLOR(WHITE));
+//				displayGoTo(5,12);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint("Start B", COLOR(WHITE));			
+//				return EVENT_HANDLED;
+//			}
+//			if((mobj->serve == team_B_2)|(mobj->serve == team_B_1)){
+//				// chon B giao bong
+//				displayClear();		
+//				displayGoTo(5,2);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint("Start A", COLOR(WHITE));
+//				displayGoTo(0,12);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint(">Start B", COLOR(WHITE));			
+//				return EVENT_HANDLED;
+//			}
+//			return EVENT_IGNORED;
+//		}
+//		case REMOTE_Y:
+//		{
+//			switch(mobj->serve)
+//			{
+//				case team_B_2:
+//					mobj->serve = team_A_2;
+//					break;
+//				case team_B_1:
+//					mobj->serve = team_A_1;
+//					break;
+//				case team_A_1 :
+//					mobj->serve = team_B_1;
+//					break;
+//				case team_A_2:
+//					mobj->serve = team_B_2;
+//					break;	
+//				default:
+//					break;
+//			}
+//			if((mobj->serve == team_A_2)|(mobj->serve == team_A_1)){
+//				displayClear();		
+//				displayGoTo(0,2);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint(">Start A", COLOR(WHITE));
+//				displayGoTo(5,12);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint("Start B", COLOR(WHITE));			
+//				return EVENT_HANDLED;
+//			}
+//			if((mobj->serve == team_B_2)|(mobj->serve == team_B_1)){
+//				// chon B giao bong
+//				displayClear();		
+//				displayGoTo(5,2);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint("Start A", COLOR(WHITE));
+//				displayGoTo(0,12);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint(">Start B", COLOR(WHITE));			
+//				return EVENT_HANDLED;
+//			}
+//			return EVENT_IGNORED;
+//		}
+//		case INC:
+//		{
+//			switch(mobj->serve)
+//			{
+//				case team_B_2:
+//					mobj->serve = team_A_2;
+//					break;
+//				case team_B_1:
+//					mobj->serve = team_A_1;
+//					break;
+//				case team_A_1 :
+//					mobj->serve = team_B_1;
+//					break;
+//				case team_A_2:
+//					mobj->serve = team_B_2;
+//					break;	
+//				default:
+//					break;
+//			}
+//			if((mobj->serve == team_A_2)|(mobj->serve == team_A_1)){
+//				displayClear();		
+//				displayGoTo(0,2);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint(">Start A", COLOR(WHITE));
+//				displayGoTo(5,12);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint("Start B", COLOR(WHITE));			
+//				return EVENT_HANDLED;
+//			}
+//			if((mobj->serve == team_B_2)|(mobj->serve == team_B_1)){
+//				// chon B giao bong
+//				displayClear();		
+//				displayGoTo(5,2);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint("Start A", COLOR(WHITE));
+//				displayGoTo(0,12);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint(">Start B", COLOR(WHITE));			
+//				return EVENT_HANDLED;
+//			}
+//			return EVENT_IGNORED;
+//		}
+//		case DEC:
+//		{
+//			switch(mobj->serve)
+//			{
+//				case team_B_2:
+//					mobj->serve = team_A_2;
+//					break;
+//				case team_B_1:
+//					mobj->serve = team_A_1;
+//					break;
+//				case team_A_1 :
+//					mobj->serve = team_B_1;
+//					break;
+//				case team_A_2:
+//					mobj->serve = team_B_2;
+//					break;	
+//				default:
+//					break;
+//			}
+//			if((mobj->serve == team_A_2)|(mobj->serve == team_A_1)){
+//				displayClear();		
+//				displayGoTo(0,2);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint(">Start A", COLOR(WHITE));
+//				displayGoTo(5,12);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint("Start B", COLOR(WHITE));			
+//				return EVENT_HANDLED;
+//			}
+//			if((mobj->serve == team_B_2)|(mobj->serve == team_B_1)){
+//				// chon B giao bong
+//				displayClear();		
+//				displayGoTo(5,2);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint("Start A", COLOR(WHITE));
+//				displayGoTo(0,12);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint(">Start B", COLOR(WHITE));			
+//				return EVENT_HANDLED;
+//			}
+//			return EVENT_IGNORED;
+//		}
+//		case SELECT:
+//		{
+//			//tran dau bat dau ben mobj->serve giao bong
+//			mobj->active_state = STARTING;
+//			return EVENT_TRANSITION;
+//		}		
+//		case START:
+//		{
+//			mobj->active_state = MENU;
+//			return EVENT_TRANSITION;
+//		}
 	}
 	return EVENT_IGNORED;
 }
@@ -547,46 +551,46 @@ static event_status_t apl_state_handler_MENU_SETTING(apl_status_t *const mobj, e
 				displayClear();		
 				displayGoTo(0,2);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Sound", COLOR(WHITE));
+				displayPrint(">Mode", COLOR(WHITE));
 				displayGoTo(5,12);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Mode", COLOR(WHITE));
+				displayPrint("Max Point", COLOR(WHITE));
 				displayGoTo(5,22);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Max point", COLOR(WHITE));				
+				displayPrint("Max Sec", COLOR(WHITE));				
 			}
 			else if (mobj->setting.select_setting == 1)
 			{
 				displayClear();		
 				displayGoTo(5,2);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Sound", COLOR(WHITE));
+				displayPrint("Mode", COLOR(WHITE));
 				displayGoTo(0,12);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Mode", COLOR(WHITE));
+				displayPrint(">Max Point", COLOR(WHITE));
 				displayGoTo(5,22);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Max point", COLOR(WHITE));	
+				displayPrint("Max Sec", COLOR(WHITE));	
 			}
 			else if (mobj->setting.select_setting == 2)
 			{
 				displayClear();		
 				displayGoTo(5,2);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Sound", COLOR(WHITE));
+				displayPrint("Mode", COLOR(WHITE));
 				displayGoTo(5,12);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Mode", COLOR(WHITE));
+				displayPrint("Max Point", COLOR(WHITE));
 				displayGoTo(0,22);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Max point", COLOR(WHITE));	
+				displayPrint(">Max Sec", COLOR(WHITE));	
 			}		
 			else if (mobj->setting.select_setting == 3)
 			{
 				displayClear();		
 				displayGoTo(0,2);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Max Sec", COLOR(WHITE));	
+				displayPrint(">Exit", COLOR(WHITE));	
 			}		
 			return EVENT_HANDLED;
 		}
@@ -595,7 +599,7 @@ static event_status_t apl_state_handler_MENU_SETTING(apl_status_t *const mobj, e
 		case DEC:
 		{
 			mobj->setting.select_setting +=1;
-			if(mobj->setting.select_setting >4)
+			if(mobj->setting.select_setting >3)
 			{
 				mobj->setting.select_setting = 0;
 			}	
@@ -604,60 +608,60 @@ static event_status_t apl_state_handler_MENU_SETTING(apl_status_t *const mobj, e
 				displayClear();		
 				displayGoTo(0,2);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Sound", COLOR(WHITE));
+				displayPrint(">Mode", COLOR(WHITE));
 				displayGoTo(5,12);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Mode", COLOR(WHITE));
+				displayPrint("Max Point", COLOR(WHITE));
 				displayGoTo(5,22);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Max point", COLOR(WHITE));				
+				displayPrint("Max Sec", COLOR(WHITE));				
 			}
 			else if (mobj->setting.select_setting == 1)
 			{
 				displayClear();		
 				displayGoTo(5,2);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Sound", COLOR(WHITE));
+				displayPrint("Mode", COLOR(WHITE));
 				displayGoTo(0,12);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Mode", COLOR(WHITE));
+				displayPrint(">Max Point", COLOR(WHITE));
 				displayGoTo(5,22);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Max point", COLOR(WHITE));	
+				displayPrint("Max Sec", COLOR(WHITE));	
 			}
 			else if (mobj->setting.select_setting == 2)
 			{
 				displayClear();		
 				displayGoTo(5,2);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Sound", COLOR(WHITE));
+				displayPrint("Mode", COLOR(WHITE));
 				displayGoTo(5,12);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Mode", COLOR(WHITE));
+				displayPrint("Max Point", COLOR(WHITE));
 				displayGoTo(0,22);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Max point", COLOR(WHITE));	
+				displayPrint(">Max Sec", COLOR(WHITE));	
 			}
 			else if (mobj->setting.select_setting == 3)
 			{
 				displayClear();		
 				displayGoTo(0,2);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Max Sec", COLOR(WHITE));	
-				displayGoTo(5,12);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Exit", COLOR(WHITE));
+				displayPrint(">Exit", COLOR(WHITE));	
+//				displayGoTo(5,12);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint("Exit", COLOR(WHITE));
 			}
-			else if (mobj->setting.select_setting == 4)
-			{
-				displayClear();		
-				displayGoTo(5,2);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Max Sec", COLOR(WHITE));	
-				displayGoTo(0,12);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Exit", COLOR(WHITE));
-			}
+//			else if (mobj->setting.select_setting == 4)
+//			{
+//				displayClear();		
+//				displayGoTo(5,2);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint("Max Sec", COLOR(WHITE));	
+//				displayGoTo(0,12);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint(">Exit", COLOR(WHITE));
+//			}
 			return EVENT_HANDLED;
 		}
 		case INC:
@@ -665,67 +669,57 @@ static event_status_t apl_state_handler_MENU_SETTING(apl_status_t *const mobj, e
 			mobj->setting.select_setting -=1;
 			if(mobj->setting.select_setting < 0)
 			{
-				mobj->setting.select_setting = 4;
+				mobj->setting.select_setting = 3;
 			}	
 			if(mobj->setting.select_setting == 0)
 			{
 				displayClear();		
 				displayGoTo(0,2);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Sound", COLOR(WHITE));
+				displayPrint(">Mode", COLOR(WHITE));
 				displayGoTo(5,12);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Mode", COLOR(WHITE));
+				displayPrint("Max Point", COLOR(WHITE));
 				displayGoTo(5,22);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Max point", COLOR(WHITE));			
+				displayPrint("Max Sec", COLOR(WHITE));				
 			}
 			else if (mobj->setting.select_setting == 1)
 			{
 				displayClear();		
 				displayGoTo(5,2);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Sound", COLOR(WHITE));
+				displayPrint("Mode", COLOR(WHITE));
 				displayGoTo(0,12);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Mode", COLOR(WHITE));
+				displayPrint(">Max Point", COLOR(WHITE));
 				displayGoTo(5,22);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Max point", COLOR(WHITE));	
+				displayPrint("Max Sec", COLOR(WHITE));	
 			}
 			else if (mobj->setting.select_setting == 2)
 			{
 				displayClear();		
 				displayGoTo(5,2);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Sound", COLOR(WHITE));
+				displayPrint("Mode", COLOR(WHITE));
 				displayGoTo(5,12);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Mode", COLOR(WHITE));
+				displayPrint("Max Point", COLOR(WHITE));
 				displayGoTo(0,22);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Max point", COLOR(WHITE));		
+				displayPrint(">Max Sec", COLOR(WHITE));	
 			}
 			else if (mobj->setting.select_setting == 3)
 			{
 				displayClear();		
 				displayGoTo(0,2);
 				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Max Sec", COLOR(WHITE));	
-				displayGoTo(5,12);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Exit", COLOR(WHITE));
-			}
-			else if (mobj->setting.select_setting == 4)
-			{
-				displayClear();		
-				displayGoTo(5,2);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint("Max Sec", COLOR(WHITE));	
-				displayGoTo(0,12);
-				displaySetFont(Terminal6x8_BIG);
-				displayPrint(">Exit", COLOR(WHITE));
-			}			
+				displayPrint(">Exit", COLOR(WHITE));	
+//				displayGoTo(5,12);
+//				displaySetFont(Terminal6x8_BIG);
+//				displayPrint("Exit", COLOR(WHITE));
+			}	
 			return EVENT_HANDLED;
 		}
 		case START:
@@ -737,25 +731,25 @@ static event_status_t apl_state_handler_MENU_SETTING(apl_status_t *const mobj, e
 		{
 			if(mobj->setting.select_setting == 0)
 			{
-				mobj->active_state = SETTING_1;
+				mobj->active_state = SETTING_2;
 				return EVENT_TRANSITION;
 			}
 			else if (mobj->setting.select_setting == 1)
 			{
-				mobj->active_state = SETTING_2;
+				mobj->active_state = SETTING_3;
 				return EVENT_TRANSITION;
 			}
 			else if (mobj->setting.select_setting == 2)
 			{
-				mobj->active_state = SETTING_3;
-				return EVENT_TRANSITION;
-			}
-			else if (mobj->setting.select_setting == 3)
-			{
 				mobj->active_state = SETTING_4;
 				return EVENT_TRANSITION;
 			}
-			else if (mobj->setting.select_setting == 4)
+//			else if (mobj->setting.select_setting == 3)
+//			{
+//				mobj->active_state = SETTING_4;
+//				return EVENT_TRANSITION;
+//			}
+			else if (mobj->setting.select_setting == 3)
 			{
 				mobj->active_state = MENU;
 				return EVENT_TRANSITION;
@@ -1177,6 +1171,7 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			memset(str_B,0,4);
 			memset(str_sec_A,0,4);
 			memset(str_sec_B,0,4);
+
 //			mobj->A_point=0;
 //			mobj->B_point=0;
 			if(mobj->A_point <10)
@@ -1200,10 +1195,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			displayClear();		
 			displayGoTo(5,14);
 			displaySetFont(Times_New_Roman12x16_BIG);
-			displayPrint(str_A, COLOR(RED));
+			displayPrint(str_A, COLOR(COLOR_A));
 			displayGoTo(38,14);
 			displaySetFont(Times_New_Roman12x16_BIG);
-			displayPrint(str_B, COLOR(BLUE));
+			displayPrint(str_B, COLOR(COLOR_B));
 //			displayGoTo(27,21);
 //			displaySetFont(Times_New_Roman10x5_BIG);
 //			displayPrint("-", COLOR(WHITE));		
@@ -1218,12 +1213,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 			if(mobj->serve == team_A_2)
 			{
-				displayGoTo(5,5);
+				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint("..", COLOR(RED));	
-				displayGoTo(44,5);
+				displayPrint("..", COLOR(COLOR_A));	
+				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(BLUE));
+				displayPrint(",,", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->A_point+1);
@@ -1236,12 +1231,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			}	
 			else if(mobj->serve == team_A_1)
 			{
-				displayGoTo(5,5);
+				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(".", COLOR(RED));	
-				displayGoTo(44,5);
+				displayPrint(".", COLOR(COLOR_A));	
+				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(BLUE));
+				displayPrint(",,", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->A_point+1);
@@ -1255,10 +1250,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(RED));	
+				displayPrint(",,", COLOR(COLOR_A));	
 				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(".", COLOR(BLUE));
+				displayPrint(".", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->B_point+1);
@@ -1272,10 +1267,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(RED));	
+				displayPrint(",,", COLOR(COLOR_A));	
 				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint("..", COLOR(BLUE));
+				displayPrint("..", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->B_point+1);
@@ -1290,12 +1285,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 				if((mobj->serve == team_B_2)||(mobj->serve == team_B_1))
 				{
-					displayGoTo(5,6);
+					displayGoTo(6,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(",,", COLOR(RED));	
+					displayPrint(",,", COLOR(COLOR_A));	
 					displayGoTo(50,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(".", COLOR(BLUE));
+					displayPrint(".", COLOR(COLOR_B));
 					if(mobj->setting.sound==1)
 					{
 						JQ8400_PlaySong(&MP3,mobj->B_point+1);
@@ -1305,12 +1300,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 				}
 				else if((mobj->serve == team_A_2)||(mobj->serve == team_A_1))
 				{
-					displayGoTo(6,5);
+					displayGoTo(6,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(".", COLOR(RED));	
-					displayGoTo(44,5);
+					displayPrint(".", COLOR(COLOR_A));	
+					displayGoTo(50,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(",,", COLOR(BLUE));
+					displayPrint(",,", COLOR(COLOR_B));
 					if(mobj->setting.sound==1)
 					{
 						JQ8400_PlaySong(&MP3,mobj->A_point+1);
@@ -1456,10 +1451,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			displayClear();		
 			displayGoTo(5,14);
 			displaySetFont(Times_New_Roman12x16_BIG);
-			displayPrint(str_A, COLOR(RED));
+			displayPrint(str_A, COLOR(COLOR_A));
 			displayGoTo(38,14);
 			displaySetFont(Times_New_Roman12x16_BIG);
-			displayPrint(str_B, COLOR(BLUE));
+			displayPrint(str_B, COLOR(COLOR_B));
 //			displayGoTo(27,21);
 //			displaySetFont(Times_New_Roman10x5_BIG);
 //			displayPrint("-", COLOR(WHITE));
@@ -1474,12 +1469,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 			if(mobj->serve == team_A_2)
 			{
-				displayGoTo(5,5);
+				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint("..", COLOR(RED));	
-				displayGoTo(44,5);
+				displayPrint("..", COLOR(COLOR_A));	
+				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(BLUE));
+				displayPrint(",,", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->A_point+1);
@@ -1492,12 +1487,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			}	
 			else if(mobj->serve == team_A_1)
 			{
-				displayGoTo(5,5);
+				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(".", COLOR(RED));	
-				displayGoTo(44,5);
+				displayPrint(".", COLOR(COLOR_A));	
+				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(BLUE));
+				displayPrint(",,", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->A_point+1);
@@ -1511,10 +1506,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(RED));	
+				displayPrint(",,", COLOR(COLOR_A));	
 				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(".", COLOR(BLUE));
+				displayPrint(".", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->B_point+1);
@@ -1528,10 +1523,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(RED));	
+				displayPrint(",,", COLOR(COLOR_A));	
 				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint("..", COLOR(BLUE));
+				displayPrint("..", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->B_point+1);
@@ -1546,12 +1541,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			else{
 				if((mobj->serve == team_B_2)||(mobj->serve == team_B_1))
 				{
-					displayGoTo(5,6);
+					displayGoTo(6,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(",,", COLOR(RED));	
-					displayGoTo(44,6);
+					displayPrint(",,", COLOR(COLOR_A));	
+					displayGoTo(50,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(".", COLOR(BLUE));
+					displayPrint(".", COLOR(COLOR_B));
 					if(mobj->setting.sound==1)
 					{
 						JQ8400_PlaySong(&MP3,mobj->B_point+1);
@@ -1561,12 +1556,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 				}
 				else if((mobj->serve == team_A_2)||(mobj->serve == team_A_1))
 				{
-					displayGoTo(5,5);
+					displayGoTo(6,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(".", COLOR(RED));	
-					displayGoTo(44,5);
+					displayPrint(".", COLOR(COLOR_A));	
+					displayGoTo(50,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(",,", COLOR(BLUE));
+					displayPrint(",,", COLOR(COLOR_B));
 					if(mobj->setting.sound==1)
 					{
 						JQ8400_PlaySong(&MP3,mobj->A_point+1);
@@ -1586,9 +1581,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 				{
 					max_point_t -=1;
 				}
-				if(mobj->A_point > 0)mobj->A_point -=1;
+				//if(mobj->A_point > 0)
+				mobj->A_point -=1;
 
-				if(mobj->A_point == 0)
+				if(mobj->A_point < 0)
 				{
 					mobj->A_point =0;
 					if(mobj->A_sec >0)mobj->A_sec -=1;
@@ -1602,8 +1598,9 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 				{
 					max_point_t -=1;
 				}
-				if(mobj->B_point > 0)mobj->B_point -=1;
-				if(mobj->B_point == 0)
+				//if(mobj->B_point > 0)
+				mobj->B_point -=1;
+				if(mobj->B_point < 0)
 				{
 					mobj->B_point =0;
 					if(mobj->B_sec >0)mobj->B_sec -=1;
@@ -1636,10 +1633,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			displayClear();		
 			displayGoTo(5,14);
 			displaySetFont(Times_New_Roman12x16_BIG);
-			displayPrint(str_A, COLOR(RED));
+			displayPrint(str_A, COLOR(COLOR_A));
 			displayGoTo(38,14);
 			displaySetFont(Times_New_Roman12x16_BIG);
-			displayPrint(str_B, COLOR(BLUE));
+			displayPrint(str_B, COLOR(COLOR_B));
 //			displayGoTo(27,21);
 //			displaySetFont(Times_New_Roman10x5_BIG);
 //			displayPrint("-", COLOR(WHITE));
@@ -1654,12 +1651,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 			if(mobj->serve == team_A_2)
 			{
-				displayGoTo(5,5);
+				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint("..", COLOR(RED));	
-				displayGoTo(44,5);
+				displayPrint("..", COLOR(COLOR_A));	
+				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(BLUE));
+				displayPrint(",,", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->A_point+1);
@@ -1671,12 +1668,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			}	
 			else if(mobj->serve == team_A_1)
 			{
-				displayGoTo(5,5);
+				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(".,", COLOR(RED));	
-				displayGoTo(44,5);
+				displayPrint(".", COLOR(COLOR_A));	
+				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(BLUE));
+				displayPrint(",,", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->A_point+1);
@@ -1690,10 +1687,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(RED));	
+				displayPrint(",,", COLOR(COLOR_A));	
 				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(".,", COLOR(BLUE));
+				displayPrint(".", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->B_point+1);
@@ -1707,10 +1704,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(RED));	
+				displayPrint(",,", COLOR(COLOR_A));	
 				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint("..", COLOR(BLUE));
+				displayPrint("..", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->B_point+1);
@@ -1725,12 +1722,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			else{
 				if((mobj->serve == team_B_2)||(mobj->serve == team_B_1))
 				{
-					displayGoTo(5,5);
+					displayGoTo(6,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(",,", COLOR(RED));	
-					displayGoTo(44,5);
+					displayPrint(",,", COLOR(COLOR_A));	
+					displayGoTo(50,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(".", COLOR(BLUE));
+					displayPrint(".", COLOR(COLOR_B));
 					if(mobj->setting.sound==1)
 					{
 						JQ8400_PlaySong(&MP3,mobj->B_point+1);
@@ -1740,12 +1737,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 				}
 				else if((mobj->serve == team_A_2)||(mobj->serve == team_A_1))
 				{
-					displayGoTo(5,5);
+					displayGoTo(6,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(".", COLOR(RED));	
-					displayGoTo(44,5);
+					displayPrint(".", COLOR(COLOR_A));	
+					displayGoTo(50,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(",,", COLOR(BLUE));
+					displayPrint(",,", COLOR(COLOR_B));
 					if(mobj->setting.sound==1)
 					{
 						JQ8400_PlaySong(&MP3,mobj->A_point+1);
@@ -1831,10 +1828,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			displayClear();		
 			displayGoTo(5,14);
 			displaySetFont(Times_New_Roman12x16_BIG);
-			displayPrint(str_A, COLOR(RED));
+			displayPrint(str_A, COLOR(COLOR_A));
 			displayGoTo(38,14);
 			displaySetFont(Times_New_Roman12x16_BIG);
-			displayPrint(str_B, COLOR(BLUE));
+			displayPrint(str_B, COLOR(COLOR_B));
 //			displayGoTo(27,21);
 //			displaySetFont(Times_New_Roman10x5_BIG);
 //			displayPrint("-", COLOR(WHITE));
@@ -1849,12 +1846,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 			if(mobj->serve == team_A_2)
 			{
-				displayGoTo(5,5);
+				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint("..", COLOR(RED));	
-				displayGoTo(44,5);
+				displayPrint("..", COLOR(COLOR_A));	
+				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(BLUE));
+				displayPrint(",,", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->A_point+1);
@@ -1867,12 +1864,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			}	
 			else if(mobj->serve == team_A_1)
 			{
-				displayGoTo(5,5);
+				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(".", COLOR(RED));	
-				displayGoTo(44,5);
+				displayPrint(".", COLOR(COLOR_A));	
+				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(BLUE));
+				displayPrint(",,", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->A_point+1);
@@ -1886,10 +1883,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(RED));	
+				displayPrint(",,", COLOR(COLOR_A));	
 				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(".", COLOR(BLUE));
+				displayPrint(".", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->B_point+1);
@@ -1903,10 +1900,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(RED));	
+				displayPrint(",,", COLOR(COLOR_A));	
 				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint("..", COLOR(BLUE));
+				displayPrint("..", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->B_point+1);
@@ -1921,12 +1918,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			else{
 				if((mobj->serve == team_B_2)||(mobj->serve == team_B_1))
 				{
-					displayGoTo(5,6);
+					displayGoTo(6,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(",,", COLOR(RED));	
-					displayGoTo(44,6);
+					displayPrint(",,", COLOR(COLOR_A));	
+					displayGoTo(50,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(".", COLOR(BLUE));
+					displayPrint(".", COLOR(COLOR_B));
 					if(mobj->setting.sound==1)
 					{
 						JQ8400_PlaySong(&MP3,mobj->B_point+1);
@@ -1936,12 +1933,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 				}
 				else if((mobj->serve == team_A_2)||(mobj->serve == team_A_1))
 				{
-					displayGoTo(5,5);
+					displayGoTo(6,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(".", COLOR(RED));	
-					displayGoTo(44,5);
+					displayPrint(".", COLOR(COLOR_A));	
+					displayGoTo(50,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(",,", COLOR(BLUE));
+					displayPrint(",,", COLOR(COLOR_B));
 					if(mobj->setting.sound==1)
 					{
 						JQ8400_PlaySong(&MP3,mobj->A_point+1);
@@ -2011,10 +2008,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			displayClear();		
 			displayGoTo(5,14);
 			displaySetFont(Times_New_Roman12x16_BIG);
-			displayPrint(str_A, COLOR(RED));
+			displayPrint(str_A, COLOR(COLOR_A));
 			displayGoTo(38,14);
 			displaySetFont(Times_New_Roman12x16_BIG);
-			displayPrint(str_B, COLOR(BLUE));
+			displayPrint(str_B, COLOR(COLOR_B));
 //			displayGoTo(27,21);
 //			displaySetFont(Times_New_Roman10x5_BIG);
 //			displayPrint("-", COLOR(WHITE));
@@ -2029,12 +2026,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 			if(mobj->serve == team_A_2)
 			{
-				displayGoTo(5,5);
+				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint("..", COLOR(RED));	
-				displayGoTo(44,5);
+				displayPrint("..", COLOR(COLOR_A));	
+				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(BLUE));
+				displayPrint(",,", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->A_point+1);
@@ -2046,12 +2043,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			}	
 			else if(mobj->serve == team_A_1)
 			{
-				displayGoTo(5,5);
+				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(".,", COLOR(RED));	
-				displayGoTo(44,5);
+				displayPrint(".,", COLOR(COLOR_A));	
+				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(BLUE));
+				displayPrint(",,", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->A_point+1);
@@ -2065,10 +2062,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(RED));	
+				displayPrint(",,", COLOR(COLOR_A));	
 				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(".,", COLOR(BLUE));
+				displayPrint(".,", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->B_point+1);
@@ -2082,10 +2079,10 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			{
 				displayGoTo(5,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint(",,", COLOR(RED));	
+				displayPrint(",,", COLOR(COLOR_A));	
 				displayGoTo(44,6);
 				displaySetFont(Times_New_Roman10x5_BIG);
-				displayPrint("..", COLOR(BLUE));
+				displayPrint("..", COLOR(COLOR_B));
 				if(mobj->setting.sound==1)
 				{
 					JQ8400_PlaySong(&MP3,mobj->B_point+1);
@@ -2100,12 +2097,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 			else{
 				if((mobj->serve == team_B_2)||(mobj->serve == team_B_1))
 				{
-					displayGoTo(5,5);
+					displayGoTo(6,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(",,", COLOR(RED));	
-					displayGoTo(44,5);
+					displayPrint(",,", COLOR(COLOR_A));	
+					displayGoTo(50,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(".", COLOR(BLUE));
+					displayPrint(".", COLOR(COLOR_B));
 					if(mobj->setting.sound==1)
 					{
 						JQ8400_PlaySong(&MP3,mobj->B_point+1);
@@ -2115,12 +2112,12 @@ static event_status_t apl_state_handler_STARTING(apl_status_t *const mobj, event
 				}
 				else if((mobj->serve == team_A_2)||(mobj->serve == team_A_1))
 				{
-					displayGoTo(5,5);
+					displayGoTo(6,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(".", COLOR(RED));	
-					displayGoTo(44,5);
+					displayPrint(".", COLOR(COLOR_A));	
+					displayGoTo(50,6);
 					displaySetFont(Times_New_Roman10x5_BIG);
-					displayPrint(",,", COLOR(BLUE));
+					displayPrint(",,", COLOR(COLOR_B));
 					if(mobj->setting.sound==1)
 					{
 						JQ8400_PlaySong(&MP3,mobj->A_point+1);
