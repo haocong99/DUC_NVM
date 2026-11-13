@@ -138,7 +138,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2V8M.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -313,7 +313,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>4</Optim>
+            <Optim>3</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -517,6 +517,16 @@
               <FileName>Button.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Driver\Button.h</FilePath>
+            </File>
+            <File>
+              <FileName>flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>flash.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Driver\flash.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,11 +1,13 @@
 #ifndef BUTTON_H
 #define BUTTON_H
 #include "main.h"
+#include "bsp.h"
 
 typedef enum{
     NOT_PRESSED,
     BOUNCE,
     PRESSED,
+		PRESSED_SHORT,
 	  HOLD
 }button_state_t;
 
@@ -20,10 +22,13 @@ typedef struct
 	uint8_t is_press_timeout;
 	GPIO_TypeDef *GPIOx;
 	uint16_t GPIO_Pin;
+	uint8_t  button_ID;
 	button_state_t btn_sm_state;
-}Button_Typdef;
+}Button_Typedef;
 
 
-void button_handle(Button_Typdef *ButtonX);
-void button_init(Button_Typdef *ButtonX,GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
+void button_read_value(Button_Typedef *ButtonX);
+
+void button_init(Button_Typedef *ButtonX,GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
+
 #endif

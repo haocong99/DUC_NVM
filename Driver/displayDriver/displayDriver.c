@@ -10,7 +10,7 @@
 //------------------------------------------------------------------------------------------
 color_t FRAME_BUFF[NUM_OF_PANELS*NUM_PIXELS_PER_PANEL/PPB]={0};
 uint8_t BITS_PER_CHANNEL=BPC;
-uint16_t BRIGHTNESS=20;
+uint16_t BRIGHTNESS=200;
 font_t SELECTED_FONT={0};
 uint8_t positionX=0;
 uint8_t positionY=0;
@@ -177,8 +177,9 @@ void displayInit(void)
 //	DATA_LED_IO;
 //#endif
 
-    displayClear();  
-    displaySetFont(DEFAULT_SMALL);
+//    displayClear();  
+   // displaySetFont(DEFAULT_SMALL);
+		displaySetBrightness(255);
 }
 //------------------------------------------------------------------------------------------
 // DISPLAY FILL FUNCTIONS
